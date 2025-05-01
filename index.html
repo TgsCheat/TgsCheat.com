@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TgsCheat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+    :root {
+      --primary: #8a2be2;
+      --primary-dark: #6a1cb2;
+      --secondary: #00ffff;
+      --background-dark: #0f0f1a;
+      --card-bg: #16161f;
+      --text-light: #f0f0ff;
+      --text-dim: #b0b0cc;
+      --accent: #ff3e66;
+    }
+
+    /* Temel Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      transition: all 0.5s ease;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 40% 80%, rgba(255, 62, 102, 0.05) 0%, transparent 20%);
+    }
+
+    body.light-theme {
+      --background-dark: #f4f6ff;
+      --card-bg: #ffffff;
+      --text-light: #16161f;
+      --text-dim: #444455;
+    }
+
+    /* Neon Glows */
+    .neon-glow {
+      position: fixed;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0.3;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.4) 0%, transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.3) 0%, transparent 30%);
+      filter: blur(40px);
+    }
+
+    /* Particle Effect */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Header */
+    header {
+      padding: 2rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: none;
+      box-shadow: 
+        0 0 0 4px rgba(138, 43, 226, 0.3),
+        0 0 25px rgba(138, 43, 226, 0.5),
+        0 0 50px rgba(138, 43, 226, 0.2);
+      transition: all 0.5s ease;
+    }
+
+    .logo-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 140px;
+      background: rgba(138, 43, 226, 0.3);
+      border-radius: 50%;
+      filter: blur(15px);
+      animation: pulse 3s infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0% { 
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.5;
+      }
+      100% { 
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    .title-container {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 0;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.5));
+      line-height: 1;
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+      color: var(--text-dim);
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    /* Main Content */
+    main {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: var(--text-light);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
+      position: relative;
+    }
+
+    /* Product Cards */
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      z-index: 1;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(138, 43, 226, 0.2);
+    }
+
+    .card-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-card h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    .product-card p {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(0, 255, 255, 0.02));
+      z-index: 0;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn i {
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+
+    .download-btn:hover {
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+      box-shadow: 0 7px 20px rgba(138, 43, 226, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(45deg);
+      z-index: 1;
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .download-btn:hover::before {
+      animation: shine 1.5s;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        left: 100%;
+        opacity: 0;
+      }
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(138, 43, 226, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .theme-toggle i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    /* Music Toggle */
+    .music-toggle {
+      position: fixed;
+      top: 20px;
+      right: 80px;
+      width: 50px;
+      height: 50px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(138, 43, 226, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .music-toggle:hover {
+      transform: scale(1.1);
+    }
+    
+    .music-toggle i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    /* Product Card Styles */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .menu-dots {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-dots:hover {
+      background: rgba(138, 43, 226, 0.1);
+    }
+    
+    .menu-dots i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .product-details {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.4s ease;
+      margin-top: 1rem;
+    }
+    
+    .product-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Key Section */
+    .key-section {
+      margin: 0.5rem 0 1rem;
+    }
+    
+    .key-container {
+      display: flex;
+      align-items: center;
+      background: rgba(138, 43, 226, 0.05);
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid rgba(138, 43, 226, 0.1);
+    }
+    
+    .key-label {
+      font-weight: 600;
+      color: var(--primary);
+      margin-right: 0.5rem;
+    }
+    
+    .key-value {
+      flex-grow: 1;
+      color: var(--text-dim);
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .copy-btn {
+      background: transparent;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+      padding: 0.3rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .copy-btn:hover {
+      background: rgba(138, 43, 226, 0.1);
+    }
+    
+    /* Creator Badge */
+    .creator-badge {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 100;
+      filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.3));
+      animation: highlight 3s infinite alternate;
+    }
+
+    @keyframes highlight {
+      0% { filter: drop-shadow(0 0 1px rgba(138, 43, 226, 0.3)); }
+      100% { filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.8)); }
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(16, 16, 26, 0.9);
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(138, 43, 226, 0.2);
+    }
+
+    body.light-theme footer {
+      background: rgba(240, 240, 255, 0.9);
+      border-top: 1px solid rgba(138, 43, 226, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .copyright {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    
+    /* Telegram Button */
+    .telegram-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .telegram-btn img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .telegram-btn:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      header {
+        padding: 1.5rem 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .logo {
+        width: 90px;
+        height: 90px;
+      }
+
+      .logo-glow {
+        width: 100px;
+        height: 100px;
+      }
+
+      .products-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .product-card h2 {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header {
+        padding: 1rem 0;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      main {
+        padding: 0 1rem 3rem;
+      }
+
+      .products-container {
+        grid-template-columns: 1fr;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+      
+      .music-toggle {
+        right: 80px;
+      }
+      
+      .key-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .key-value {
+        margin: 0.3rem 0;
+        width: 100%;
+      }
+      
+      .copy-btn {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body class="dark-theme">
+  <!-- Arka Plan Efektleri -->
+  <div class="neon-glow"></div>
+  <div id="particles" class="particles"></div>
+  
+  <!-- Creator Badge -->
+  <div class="creator-badge">#Kei</div>
+  
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <img src="https://resmim.net/cdn/2025/04/19/NOnBd3.jpg" alt="TgsCheat Logo" class="logo" />
+      </div>
+      <div class="title-container">
+        <h1>TgsCheat</h1>
+        <p class="tagline">Oyunun Kuralını Biz Yazarız!</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ana İçerik -->
+  <main>
+        <div class="products-container">
+      <!-- Ürün Kartı 1 -->
+      <div class="product-card">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <h2>TgsCheatV2</h2>
+            <div class="menu-dots" onclick="toggleProductDetails(this)">
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <p>Mod Menü</p>
+          <div class="key-section">
+            <div class="key-container">
+              <span class="key-label">Key:</span>
+              <span class="key-value" id="key1">168-HOUR-TgsCheats-86357</span>
+              <button class="copy-btn" onclick="copyToClipboard('key1')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <a href="https://www.mediafire.com/file/swb239y714xkh7f/TgsCheatV2.apk/file" class="download-btn">
+            <i class="fas fa-download"></i>İndir
+          </a>
+          <div class="product-details">
+            <img src="https://resmim.net/cdn/2025/05/01/NIvK3y.jpg"alt="TgsCheatV2" class="product-image">
+          </div>
+        </div>
+      </div>
+    
+    <div class="products-container">
+      <!-- Ürün Kartı 1 -->
+      <div class="product-card">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <h2>TgsCheatV1</h2>
+            <div class="menu-dots" onclick="toggleProductDetails(this)">
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <p>Mod Menü</p>
+          <div class="key-section">
+            <div class="key-container">
+              <span class="key-label">Key:</span>
+              <span class="key-value" id="key1">168-HOUR-TgsCheats-67210</span>
+              <button class="copy-btn" onclick="copyToClipboard('key1')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <a href="https://www.mediafire.com/file/qmniq9w6u2ore68/TgsCheatV1.apk/file" class="download-btn">
+            <i class="fas fa-download"></i>İndir
+          </a>
+          <div class="product-details">
+            <img src="https://resmim.net/cdn/2025/04/17/Nxvcv6.jpg" alt="TgsCheatV1" class="product-image">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ürün Kartı 2 -->
+      <div class="product-card">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <h2>TgsCheat1</h2>
+            <div class="menu-dots" onclick="toggleProductDetails(this)">
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <p>Mod Menü</p>
+          <div class="key-section">
+            <div class="key-container">
+              <span class="key-label">Key:</span>
+              <span class="key-value" id="key2">1440-HOUR-TgsCheats-81769</span>
+              <button class="copy-btn" onclick="copyToClipboard('key2')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <a href="https://www.mediafire.com/file/fdkwbfoamhlsm14/TgsCheat1.apk/file" class="download-btn">
+            <i class="fas fa-download"></i>İndir
+          </a>
+          <div class="product-details">
+            <img src="https://resmim.net/cdn/2025/04/13/N7sot3.jpg" alt="TgsCheat1" class="product-image">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ürün Kartı 3 -->
+      <div class="product-card">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <h2>TgsCheat2</h2>
+            <div class="menu-dots" onclick="toggleProductDetails(this)">
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <p>Mod Menü</p>
+          <div class="key-section">
+            <div class="key-container">
+              <span class="key-label">Key:</span>
+              <span class="key-value" id="key3">1440-HOUR-TgsCheats-12836</span>
+              <button class="copy-btn" onclick="copyToClipboard('key3')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <a href="https://www.mediafire.com/file/m0de5z1jfnand7x/TgsCheat2.apk/file" class="download-btn">
+            <i class="fas fa-download"></i>İndir
+          </a>
+          <div class="product-details">
+            <img src="https://resmim.net/cdn/2025/04/13/N7srpq.jpg" alt="TgsCheat2" class="product-image">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ürün Kartı 4 -->
+      <div class="product-card">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <h2>TgsCheat3</h2>
+            <div class="menu-dots" onclick="toggleProductDetails(this)">
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <p>Mod Menü</p>
+          <div class="key-section">
+            <div class="key-container">
+              <span class="key-label">Key:</span>
+              <span class="key-value" id="key4">1440-HOUR-TgsCheats-40967</span>
+              <button class="copy-btn" onclick="copyToClipboard('key4')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <a href="https://www.mediafire.com/file/32v6ojmenf332pk/TgsCheat3.apk/file" class="download-btn">
+            <i class="fas fa-download"></i>İndir
+          </a>
+          <div class="product-details">
+            <img src="https://resmim.net/cdn/2025/04/13/N7s5Pc.jpg" alt="TgsCheat3" class="product-image">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ürün Kartı 5 -->
+      <div class="product-card">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <h2>TgsCheat4</h2>
+            <div class="menu-dots" onclick="toggleProductDetails(this)">
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <p>Mod Menü</p>
+          <div class="key-section">
+            <div class="key-container">
+              <span class="key-label">Key:</span>
+              <span class="key-value" id="key5">1440-HOUR-TgsCheats-49526</span>
+              <button class="copy-btn" onclick="copyToClipboard('key5')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <a href="https://www.mediafire.com/file/lb1v7hfk86utwfo/TgsCheat4.apk/file" class="download-btn">
+            <i class="fas fa-download"></i>İndir
+          </a>
+          <div class="product-details">
+            <img src="https://resmim.net/cdn/2025/04/13/N7ssDR.jpg" alt="TgsCheat4" class="product-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <!-- Telegram Butonu -->
+      <a href="https://t.me/Tgs_Kurucu" target="_blank" class="telegram-btn">
+        <img src="https://resmim.net/cdn/2025/04/13/N7sNmx.png" alt="Telegram" />
+      </a>
+      <p class="copyright">&copy; 2025 TgsCheat - Tüm Hakları Saklıdır</p>
+    </div>
+  </footer>
+
+  <!-- Tema Değiştirme Butonu -->
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+  </div>
+  
+  <!-- Müzik Butonu -->
+  <div class="music-toggle" onclick="toggleMusic()">
+    <i class="fas fa-music"></i>
+  </div>
+  
+  <!-- Audio Element -->
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/pxjrsa.mp4" type="audio/mp4">
+  </audio>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Tema değiştirme fonksiyonu
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('light-theme');
+      
+      const themeIcon = document.querySelector('.theme-toggle i');
+      if (body.classList.contains('light-theme')) {
+        themeIcon.className = 'fas fa-sun';
+      } else {
+        themeIcon.className = 'fas fa-moon';
+      }
+    }
+    
+    // Müzik çalma/durdurma fonksiyonu
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      const musicIcon = document.querySelector('.music-toggle i');
+      
+      if (music.paused) {
+        music.play();
+        musicIcon.className = 'fas fa-volume-up';
+      } else {
+        music.pause();
+        musicIcon.className = 'fas fa-music';
+      }
+    }
+    
+    // Ürün detaylarını göster/gizle
+    function toggleProductDetails(element) {
+      const card = element.closest('.card-content');
+      const details = card.querySelector('.product-details');
+      
+      // Tüm diğer detayları kapat
+      document.querySelectorAll('.product-details').forEach(detail => {
+        if (detail !== details && detail.style.height !== '0px' && detail.style.height !== '') {
+          detail.style.height = '0px';
+        }
+      });
+      
+      // Seçilen detayı aç veya kapat
+      if (details.style.height === '0px' || details.style.height === '') {
+        details.style.height = details.scrollHeight + 'px';
+      } else {
+        details.style.height = '0px';
+      }
+    }
+    
+    // Key'i panoya kopyalama
+    function copyToClipboard(elementId) {
+      const keyText = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(keyText).then(() => {
+        // Kopyalama başarılı animasyonu
+        const copyBtn = document.querySelector(`#${elementId}`).nextElementSibling;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+        
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+        }, 1500);
+      });
+    }
+
+    // Particles.js ayarları
+    document.addEventListener("DOMContentLoaded", function() {
+      particlesJS('particles', {
+        "particles": {
+          "number": {
+            "value": 50,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#8a2be2"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+          },
+          "opacity": {
+            "value": 0.3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.5,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#8a2be2",
+            "opacity": 0.2,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 0.5
+              }
+            },
+            "push": {
+              "particles_nb": 3
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+
+    // Sayfa yükleme animasyonu
+    window.addEventListener('load', function() {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+  </html>
